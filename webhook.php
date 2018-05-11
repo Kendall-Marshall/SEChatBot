@@ -8,8 +8,8 @@
                 
                 sendMessage(array(
                     "source" => $update["result"]["source"],
-                    "speech" => "Hello from webhook " . $paper,
-                    "displayText" => "Hello from webhook "  . $paper,
+                    "speech" => "Hello from webhook HEroku" . $paper,
+                    "displayText" => "Hello from webhook Heroku"  . $paper,
                     "contextOut" => array()
                 ));
             }
