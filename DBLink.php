@@ -23,6 +23,7 @@
     if (isset($update["result"]["action"])) {
         processMessage($update);
     }
+    
     $dsn = "pgsql:"
     . "host=ec2-23-23-248-192.compute-1.amazonaws.com;"
     . "dbname=d7l6p49ppkecvu;"

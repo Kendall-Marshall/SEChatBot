@@ -2,6 +2,7 @@
     //echo "hello";
     function processMessage($update) {
             //$pre = setupDB($paper);
+            echo "hello";
             if($update["result"]["action"] == "sayHello" ){
                 $paper = $update["result"]["parameters"]["paperName1"];
                 
