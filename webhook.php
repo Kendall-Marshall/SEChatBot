@@ -13,7 +13,7 @@
             if($update["result"]["action"] == "sayHello" ){
                 $paper = $update["result"]["parameters"]["paperName1"];
                 
-                $query = "SELECT * FROM papers WHERE papercode LIKE '%$paper%'";
+                $query = "SELECT * FROM papers WHERE paperName LIKE '%$paper%'";
                 $result = $db->query($query);
 
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
