@@ -26,8 +26,8 @@
                 $result->closeCursor();
                 sendMessage(array(
                     "source" => $update["result"]["source"],
-                    "speech" => "Hello from webhook H3roku" . $paper . $pCode . $pName . $pPre,
-                    "displayText" => "Hello from webhook H3roku" . $paper . $pCode . $pName . $pPre,
+                    "speech" => "Hello from webhook H3roku" . $pCode . $pName . $pPre,
+                    "displayText" => "Hello from webhook H3roku" . $pCode . $pName . $pPre,
                     "contextOut" => array()
                 ));
             }
