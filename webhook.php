@@ -16,10 +16,6 @@
                 $query = "SELECT * FROM papers WHERE papercode LIKE '%$paper%'";
                 $result = $db->query($query);
 
-                var $pCode = "1";
-                var $pName = "2";
-                var $pPre = "3";
-
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     
                     $pCode = $row["papercode"];
