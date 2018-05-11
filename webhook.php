@@ -8,15 +8,25 @@
             . "sslmode=require;"
             . "password=9553b589643fe647133277e9a8cf1bd74a6e2cac8ecbc377a0d92a53a3fcd6d7";
         
-            $db = new PDO($dsn);           
+            $db = new PDO($dsn); 
+
             if($update["result"]["action"] == "sayHello" ){
                 $paper = $update["result"]["parameters"]["paperName1"];
                 
-                
+                $query = "SELECT * FROM papers WHERE papercode LIKE '%$paper%'";
+                $result = $db->query($query);
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    
+                    $pCode = $row["papercode"];
+                    $pName = $row["papername"];
+                    $pPre = $row["prereq"];
+                    
+                }
+                $result->closeCursor();
                 sendMessage(array(
                     "source" => $update["result"]["source"],
-                    "speech" => "Hello from webhook HEroku" . $paper,
-                    "displayText" => "Hello from webhook Heroku"  . $paper,
+                    "speech" => "Hello from webhook HEroku" . $pCode . $pName . $pPre,
+                    "displayText" => "Hello from webhook Heroku" . $pCode . $pName . $pPre,
                     "contextOut" => array()
                 ));
             }
