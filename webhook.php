@@ -1,5 +1,5 @@
 <?php
-    echo "hello";
+    //echo "hello";
     function processMessage($update) {
             //$pre = setupDB($paper);
             if($update["result"]["action"] == "sayHello" ){
