@@ -15,6 +15,11 @@
                 
                 $query = "SELECT * FROM papers WHERE papercode LIKE '%$paper%'";
                 $result = $db->query($query);
+
+                var $pCode = "1";
+                var $pName = "2";
+                var $pPre = "3";
+
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     
                     $pCode = $row["papercode"];
@@ -25,8 +30,8 @@
                 $result->closeCursor();
                 sendMessage(array(
                     "source" => $update["result"]["source"],
-                    "speech" => "Hello from webhook HEroku" . $pCode . $pName . $pPre,
-                    "displayText" => "Hello from webhook Heroku" . $pCode . $pName . $pPre,
+                    "speech" => "Hello from webhook H3roku" . $pCode . $pName . $pPre,
+                    "displayText" => "Hello from webhook H3roku" . $pCode . $pName . $pPre,
                     "contextOut" => array()
                 ));
             }
