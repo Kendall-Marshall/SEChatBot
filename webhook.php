@@ -11,7 +11,14 @@
             $db = new PDO($dsn); 
 
             if($update["result"]["action"] == "sayHello" ){
+
                 $paper = $update["result"]["parameters"]["paperName1"];
+                if(empty($paper)){
+                    $paper = $update["result"]["parameters"]["paperName2"];
+                    if(empty($paper)){
+                        $paper = $update["result"]["parameters"]["paperName3"];
+                    }
+                }
                 
                 $query = "SELECT * FROM papers WHERE paperName LIKE '%$paper%'";
                 $result = $db->query($query);
