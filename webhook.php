@@ -10,7 +10,7 @@
         
             $db = new PDO($dsn); 
 
-            if($update["result"]["action"] == "sayHello" ){
+            if($update["result"]["action"] == "DBLink" ){
 
                 $paper = $update["result"]["parameters"]["paperName1"];
                 if(empty($paper)){
