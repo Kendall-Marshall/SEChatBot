@@ -73,15 +73,15 @@
                 if($pPre == "NONE" || $pPre == " NONE"){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
-                        "speech" => $Pre . " is not a requirement for any papers.",
-                        "displayText" => $Pre . " is not a requirement for any papers.",
+                        "speech" => $paper . " is not a requirement for any papers.",
+                        "displayText" => $paper . " is not a requirement for any papers.",
                         "contextOut" => array()
                     ));
                 }else{
                     sendMessage(array(
                         "source" => $update["result"]["source"],
-                        "speech" => $Pre . " is a Requirement for: " . $pName,
-                        "displayText" => $Pre . " is a Requirement for: " . $pName,
+                        "speech" => $paper . " is a Requirement for: " . $pName,
+                        "displayText" => $paper . " is a Requirement for: " . $pName,
                         "contextOut" => array()
                     ));
                 }
