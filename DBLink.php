@@ -37,7 +37,7 @@
 
 <html>
  <head>
-  <title>Employees</title>
+  <title>Paper Info</title>
  </head>
  <body>
   <table>
