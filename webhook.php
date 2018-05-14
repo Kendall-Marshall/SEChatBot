@@ -48,6 +48,45 @@
                 }
                 
             }
+
+            if($update["result"]["action"] == "DBtest" ){
+
+                $paper = $update["result"]["parameters"]["paperName1"];
+                if(empty($paper)){
+                    $paper = $update["result"]["parameters"]["paperName2"];
+                    if(empty($paper)){
+                        $paper = $update["result"]["parameters"]["paperName3"];
+                    }
+                }
+                
+                $query = "SELECT * FROM papers WHERE paperName LIKE '%$paper%'";
+                $result = $db->query($query);
+
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    
+                    $pCode = $row["papercode"];
+                    $pName = $row["papername"];
+                    $pPre = $row["prereq"];
+                    
+                }
+                $result->closeCursor();
+                if($pPre == "NONE" || $pPre == " NONE"){
+                    sendMessage(array(
+                        "source" => $update["result"]["source"],
+                        "speech" => "Hello thereeeee",
+                        "displayText" => "Hello thereeeee",
+                        "contextOut" => array()
+                    ));
+                }else{
+                    sendMessage(array(
+                        "source" => $update["result"]["source"],
+                        "speech" => "Hello thereeeee",
+                        "displayText" => "Hello thereeeee",
+                        "contextOut" => array()
+                    ));
+                }
+                
+            }
         }
         
         function sendMessage($parameters) {
