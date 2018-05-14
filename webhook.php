@@ -31,7 +31,7 @@
                     
                 }
                 $result->closeCursor();
-                if($pPre == "NONE"){
+                if($pPre == "NONE" || $pPre == " NONE"){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
                         "speech" => $pName . " (" . $pCode .") Has no Pre-Requisite's",
