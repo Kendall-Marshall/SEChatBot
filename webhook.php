@@ -78,16 +78,14 @@
                         
                     }
                     $result->closeCursor();
-                    if($pPre == "NONE" || $pPre == " NONE"){
-                        
-                    }else{
+                    
                         sendMessage(array(
                             "source" => $update["result"]["source"],
                             "speech" => $paper . " is a Requirement for: " . $pName,
                             "displayText" => $paper . " is a Requirement for: " . $pName,
                             "contextOut" => array()
                         ));
-                    }
+                    
                 }  
             }
         }
