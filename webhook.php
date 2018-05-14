@@ -31,12 +31,22 @@
                     
                 }
                 $result->closeCursor();
-                sendMessage(array(
-                    "source" => $update["result"]["source"],
-                    "speech" => "The Pre-Requisite's for " . $pName . " (" . $pCode .") are: ". $pPre,
-                    "displayText" => "The Pre-Requisite's for " . $pName . " (" . $pCode .") are: ". $pPre,
-                    "contextOut" => array()
-                ));
+                if($pPre == "NONE"){
+                    sendMessage(array(
+                        "source" => $update["result"]["source"],
+                        "speech" => $pName . " (" . $pCode .") Has no Pre-Requisite's",
+                        "displayText" => $pName . " (" . $pCode .") Has no Pre-Requisite's",
+                        "contextOut" => array()
+                    ));
+                }else{
+                    sendMessage(array(
+                        "source" => $update["result"]["source"],
+                        "speech" => "The Pre-Requisite's for " . $pName . " (" . $pCode .") are: ". $pPre,
+                        "displayText" => "The Pre-Requisite's for " . $pName . " (" . $pCode .") are: ". $pPre,
+                        "contextOut" => array()
+                    ));
+                }
+                
             }
         }
         
