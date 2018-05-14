@@ -61,7 +61,7 @@
                 
                 $query = "SELECT * FROM papers WHERE prereq LIKE '%$paper%'";
                 $result = $db->query($query);
-                if(pg_num_rows($result) === 0){
+                if($row["prereq"] == "NONE" || $row["prereq"] == " NONE"){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
                         "speech" => $paper . " is not a requirement for any papers.",
