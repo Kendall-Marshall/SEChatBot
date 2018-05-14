@@ -61,7 +61,7 @@
                 
                 $query = "SELECT * FROM papers WHERE prereq LIKE '%$paper%'";
                 $result = $db->query($query);
-                $numRows = pg_num_rows($result);
+                $numRows = num_rows($result);
                 if($numRows ==0){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
