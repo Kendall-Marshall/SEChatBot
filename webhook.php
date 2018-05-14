@@ -61,31 +61,35 @@
                 
                 $query = "SELECT * FROM papers WHERE prereq LIKE '%$paper%'";
                 $result = $db->query($query);
-
-                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    
-                    $pCode = $row["papercode"];
-                    $pName = $row["papername"];
-                    $pPre = $row["prereq"];
-                    
-                }
-                $result->closeCursor();
-                if($pPre == "NONE" || $pPre == " NONE"){
+                $numRows = pg_num_rows($result);
+                if($numRows ==0){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
                         "speech" => $paper . " is not a requirement for any papers.",
                         "displayText" => $paper . " is not a requirement for any papers.",
                         "contextOut" => array()
                     ));
-                }else{
-                    sendMessage(array(
-                        "source" => $update["result"]["source"],
-                        "speech" => $paper . " is a Requirement for: " . $pName,
-                        "displayText" => $paper . " is a Requirement for: " . $pName,
-                        "contextOut" => array()
-                    ));
                 }
-                
+                else{
+                    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    
+                        $pCode = $row["papercode"];
+                        $pName = $row["papername"];
+                        $pPre = $row["prereq"];
+                        
+                    }
+                    $result->closeCursor();
+                    if($pPre == "NONE" || $pPre == " NONE"){
+                        
+                    }else{
+                        sendMessage(array(
+                            "source" => $update["result"]["source"],
+                            "speech" => $paper . " is a Requirement for: " . $pName,
+                            "displayText" => $paper . " is a Requirement for: " . $pName,
+                            "contextOut" => array()
+                        ));
+                    }
+                }  
             }
         }
         
