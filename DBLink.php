@@ -43,9 +43,9 @@
   <table>
    <thead>
     <tr>
-     <th>CODE</th>
-     <th>NAem</th>
-     <th>Pre</th>
+     <th>Paper Code</th>
+     <th>Paper Name</th>
+     <th>Paper Pre-Requisite</th>
     </tr>
    </thead>
    <tbody>
