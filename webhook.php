@@ -59,7 +59,7 @@
                     }
                 }
                 
-                $query = "SELECT * FROM papers WHERE paperName LIKE '%$paper%'";
+                $query = "SELECT * FROM papers WHERE prereq LIKE '%$paper%'";
                 $result = $db->query($query);
 
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -73,15 +73,15 @@
                 if($pPre == "NONE" || $pPre == " NONE"){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
-                        "speech" => "Hello thereeeee",
-                        "displayText" => "Hello thereeeee",
+                        "speech" => $Pre . " is not a requirement for any papers.",
+                        "displayText" => $Pre . " is not a requirement for any papers.",
                         "contextOut" => array()
                     ));
                 }else{
                     sendMessage(array(
                         "source" => $update["result"]["source"],
-                        "speech" => "Hello thereeeee",
-                        "displayText" => "Hello thereeeee",
+                        "speech" => $Pre . " is a Requirement for: " . $pName,
+                        "displayText" => $Pre . " is a Requirement for: " . $pName,
                         "contextOut" => array()
                     ));
                 }
