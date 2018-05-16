@@ -1,3 +1,3 @@
 <?php
-echo "Second Php page";
+echo "Secondaa Php page";
 ?>
