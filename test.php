@@ -1,5 +1,5 @@
 <?php
 
-    echo "Secondary Php page":
+    echo "Secondary Php page";
 
 ?>
