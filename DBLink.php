@@ -57,6 +57,7 @@
         echo "<td>" . $row["papercode"] . "</td>";
         echo "<td>" . $row["papername"] . "</td>";
         echo "<td>" . $row["prereq"] . "</td>";
+        echo "<td>" . $row["coreq"] . "</td>";
         echo "</tr>";
     }
     $result->closeCursor();
