@@ -45,7 +45,8 @@
     <tr>
      <th>Paper Code</th>
      <th>Paper Name</th>
-     <th>Paper Pre-Requisite</th>
+     <th>Paper Pre-Requisites</th>
+     <th>Paper Co-Requisites</th>
     </tr>
    </thead>
    <tbody>
