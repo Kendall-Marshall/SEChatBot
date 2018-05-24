@@ -49,6 +49,42 @@
                 
             }
 
+            if($update["result"]["action"] == "CoLink" ){
+
+                $paper = $update["result"]["parameters"]["paperName1"];
+                if(empty($paper)){
+                    $paper = $update["result"]["parameters"]["paperName2"];
+                    if(empty($paper)){
+                        $paper = $update["result"]["parameters"]["paperName3"];
+                    }
+                }
+                
+                $query = "SELECT * FROM papers WHERE paperName LIKE '%$paper%'";
+                $result = $db->query($query);
+
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    $pCode = $row["papercode"];
+                    $pName = $row["papername"];
+                    $pCoreq = $row["coreq"];
+                }
+                $result->closeCursor();
+                if($pCoreq == "NONE" || $pCoreq == " NONE"){
+                    sendMessage(array(
+                        "source" => $update["result"]["source"],
+                        "speech" => $pName . " (" . $pCode .") Has no Co-Requisite's",
+                        "displayText" => $pName . " (" . $pCode .") Has no Co-Requisite's",
+                        "contextOut" => array()
+                    ));
+                }else{
+                    sendMessage(array(
+                        "source" => $update["result"]["source"],
+                        "speech" => "The Co-Requisite's for " . $pName . " (" . $pCode .") are: ". $pCoreq,
+                        "displayText" => "The Co-Requisite's for " . $pName . " (" . $pCode .") are: ". $pCoreq,
+                        "contextOut" => array()
+                    ));
+                }
+            }
+
             if($update["result"]["action"] == "DBtest" ){
 
                 $paper = $update["result"]["parameters"]["paperName1"];
