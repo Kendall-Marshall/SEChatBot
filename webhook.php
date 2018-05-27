@@ -24,6 +24,14 @@
                                 $paper = $update["result"]["contexts"][0]["parameters"]["paperName2"];
                                 if(empty($paper)){
                                     $paper = $update["result"]["contexts"][0]["parameters"]["paperName3"];
+                                    if(empty($paper)){
+                                        sendMessage(array(
+                                            "source" => $update["result"]["source"],
+                                            "speech" => "Sorry. Paper not valid",
+                                            "displayText" => "Sorry. Paper not valid",
+                                            "contextOut" => array()
+                                        ));
+                                    }
                                 }
                             }
                         }
@@ -42,15 +50,7 @@
                     
                 }
                 $result->closeCursor();
-                if($pRre == ""){
-                    sendMessage(array(
-                        "source" => $update["result"]["source"],
-                        "speech" => "Sorry. Paper not valid",
-                        "displayText" => "Sorry. Paper not valid",
-                        "contextOut" => array()
-                    ));
-                }
-                else if($pPre == "NONE" || $pPre == " NONE"){
+                if($pPre == "NONE" || $pPre == " NONE"){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
                         "speech" => $pName . " (" . $pCode .") Has no Pre-Requisite's",
@@ -96,15 +96,7 @@
                     $pCoreq = $row["coreq"];
                 }
                 $result->closeCursor();
-                if($pCoreq == ""){
-                    sendMessage(array(
-                        "source" => $update["result"]["source"],
-                        "speech" => "Sorry. Paper not valid",
-                        "displayText" => "Sorry. Paper not valid",
-                        "contextOut" => array()
-                    ));
-                }
-                else if($pCoreq == "NONE" || $pCoreq == " NONE"){
+                if($pCoreq == "NONE" || $pCoreq == " NONE"){
                     sendMessage(array(
                         "source" => $update["result"]["source"],
                         "speech" => $pName . " (" . $pCode .") Has no Co-Requisite's",
