@@ -27,8 +27,8 @@
                                     if(empty($paper)){
                                         sendMessage(array(
                                             "source" => $update["result"]["source"],
-                                            "speech" => "Sorry. Paper not valid",
-                                            "displayText" => "Sorry. Paper not valid",
+                                            "speech" => "Sorry Paper not valid",
+                                            "displayText" => "Sorry Paper not valid",
                                             "contextOut" => array()
                                         ));
                                     }
