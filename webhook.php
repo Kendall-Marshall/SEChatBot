@@ -19,7 +19,7 @@
                     if(empty($paper)){
                         $paper = $update["result"]["parameters"]["paperName3"];
                         if(empty($paper)){
-                            $paper = $update["result"]["contexts"]["parameters"]["paperName1"];
+                            $paper = $update["result"]["contexts[\"parameters\"][\"paperName1\"]"];
                             if(empty($paper)){
                                 $paper = $update["result"]["contexts"]["parameters"]["paperName2"];
                                 if(empty($paper)){
