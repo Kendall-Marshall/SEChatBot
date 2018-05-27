@@ -1,0 +1,32 @@
+.mainBg{
+    background-image: url("https://i.imgur.com/IFcqIOS.jpg");
+    background-color: #313340;
+    height: 1200px;
+    width: 100%;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5%;
+    
+}
+
+.main-index{
+    width: 80%;
+    margin: auto;
+}
+
+.top-buffer { 
+    margin-top:20px; 
+    margin-bottom:20px; 
+}
+
+.bottom-buffer { 
+    margin-top:20px; 
+    margin-bottom:40px; 
+}
+
+
+
+
+
